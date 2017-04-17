@@ -6,6 +6,35 @@
 ##
 ##############################################################################
 
+# setup ANDROID_HOME
+wget http://dl.google.com/android/android-sdk_r24-linux.tgz
+tar -xzf android-sdk_r24-linux.tgz
+script_dir=$(dirname $0)
+
+export ANDROID_HOME=$script_dir/android-sdk-linux
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+echo "Update Android SDK"
+echo y | $ANDROID_HOME/tools/android update sdk --filter platform-tools --all --no-ui
+echo y | $ANDROID_HOME/tools/android update sdk --filter tools --all --no-ui
+echo y | $ANDROID_HOME/tools/android update sdk --filter build-tools-25.0.0 --all --no-ui
+echo y | $ANDROID_HOME/tools/android update sdk --filter build-tools-24.0.2 --all --no-ui
+echo y | $ANDROID_HOME/tools/android update sdk --filter build-tools-23.0.1 --all --no-ui
+echo y | $ANDROID_HOME/tools/android update sdk --filter android-25 --all --no-ui
+echo y | $ANDROID_HOME/tools/android update sdk --filter android-24 --all --no-ui
+echo y | $ANDROID_HOME/tools/android update sdk --filter android-23 --all --no-ui
+echo y | $ANDROID_HOME/tools/android update sdk --filter android-22 --all --no-ui
+echo y | $ANDROID_HOME/tools/android update sdk --filter android-21 --all --no-ui
+echo y | $ANDROID_HOME/tools/android update sdk --filter android-19 --all --no-ui
+echo y | $ANDROID_HOME/tools/android update sdk --filter android-18 --all --no-ui
+echo y | $ANDROID_HOME/tools/android update sdk --filter android-17 --all --no-ui
+
+wget https://dl.google.com/android/repository/android-ndk-r14b-linux-x86_64.zip
+unzip android-ndk-r14b-linux-x86_64.zip
+export ANDROID_NDK_HOME=$script_dir/android-ndk-r14b
+
+ls $ANDROID_NDK_HOME
+
 # Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
 DEFAULT_JVM_OPTS=""
 
