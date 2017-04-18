@@ -8,6 +8,9 @@ repositories {
 android {
     compileSdkVersion 27
     buildToolsVersion "27.0.3"
+	lintOptions {
+		abortOnError false
+	}
 
     defaultConfig {
         minSdkVersion 19
